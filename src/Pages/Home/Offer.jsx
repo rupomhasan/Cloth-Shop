@@ -4,7 +4,7 @@ const Offer = () => {
     <div className="md:flex gap-10 my-20 px-5 max-w-screen-xl mx-auto">
       <div className="relative my-10 md:my-0 overflow-hidden">
         <motion.img
-          whileHover={{ scale: 1.05 , x : 3 }}
+          whileHover={{ scale: 1.15, x: 3 }}
           src="https://multikart-react-reactpixelstrap.vercel.app/_next/static/media/sub-banner1.5d5f9c6f.jpg"
           className=" z-0"
         />
@@ -15,7 +15,7 @@ const Offer = () => {
       </div>
       <div className="relative   overflow-hidden">
         <motion.img
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.15 }}
           className=""
           src="https://multikart-react-reactpixelstrap.vercel.app/_next/static/media/sub-banner2.3b2448f3.jpg "
         />{" "}

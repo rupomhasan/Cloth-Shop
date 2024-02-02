@@ -5,6 +5,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import MyCart from "./Pages/MyCart";
+import DeailyDeals from "./Pages/Home/DeilyDeals/DeailyDeals";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader : () => fetch('http://localhost:2500/products'),
         element: <Home />,
       },
+      {
+        path: "/",
+        element: <DeailyDeals />,
+        
+      },
+
       {
         path: "/login",
         element: <Login />,
