@@ -3,7 +3,7 @@
  
 ### Clothes Sub-navigation
 
-Our home page i includes a sub navigation for the clothes section sothat user can filter the displayed clothes by the following options  : 
+In home page i have includes a sub navigation for the clothes section sothat user can filter the displayed clothes by the following options  : 
 
 - **All:** View all available clothes.
 - **New:** Explore the latest additions to out collection.
