@@ -19,4 +19,6 @@ In home page i have includes a sub navigation for the clothes section sothat use
 
 Explore what our user saying and give rating about out products. 
 
+### 4. Instagram Component
 
+Explore a delightful Instagram-style image component in our project! When you hover over the image...
