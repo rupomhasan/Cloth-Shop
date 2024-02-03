@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const NewProducts = ({ newClouth }) => {
   console.log(newClouth);
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 px-5 max-w-screen-2xl mx-auto">
       {newClouth.map((clouth, idx) => (
         <div key={idx}>
           <Link to="/">
@@ -41,8 +41,14 @@ const NewProducts = ({ newClouth }) => {
                   <div className="badge  badge-outline text-lg font-semibold bg-[#6a6bff] p-3 text-white">
                     Fashion
                   </div>
-                  <div className="badge badge-outline text-lg font-bold bg-[#6a6bff] p-3 text-white">
-                    {clouth?.status}
+                  <div
+                    className={` ${
+                      clouth.status === "In Stock"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    } badge badge-outline text-lg font-bold  p-3 `}
+                  >
+                    {clouth.status}
                   </div>
                 </div>
               </div>

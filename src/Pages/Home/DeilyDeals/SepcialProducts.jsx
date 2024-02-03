@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const SepcialProducts = ({ specialClouth }) => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-5">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 px-5 max-w-screen-2xl mx-auto">
       {specialClouth.map((clouth, idx) => (
         <div key={idx}>
           <Link to="/">
@@ -30,14 +30,6 @@ const SepcialProducts = ({ specialClouth }) => {
                     {clouth?.price} <span className="text-gray-600">Taka</span>
                   </span>
                 </p>
-                <div className="card-actions justify-end">
-                  <div className="badge  badge-outline text-lg font-semibold bg-[#6a6bff] p-3 text-white">
-                    Fashion
-                  </div>
-                  <div className="badge badge-outline text-lg font-bold bg-[#6a6bff] p-3 text-white">
-                    {clouth?.status}
-                  </div>
-                </div>
                 <div>
                   <Rating
                     style={{ maxWidth: 130 }}
@@ -45,7 +37,20 @@ const SepcialProducts = ({ specialClouth }) => {
                     // itemStyles={myStyles}
                     readOnly
                   />
-                  {clouth?.rating}
+                </div>
+                <div className="card-actions justify-end">
+                  <div className="badge  badge-outline text-lg font-semibold bg-[#6a6bff] p-3 text-white">
+                    Fashion
+                  </div>
+                  <div
+                    className={` ${
+                      clouth.status === "In Stock"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    } badge badge-outline text-lg font-bold  p-3 `}
+                  >
+                    {clouth.status}
+                  </div>
                 </div>
               </div>
             </div>

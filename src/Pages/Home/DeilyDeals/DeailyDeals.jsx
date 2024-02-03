@@ -16,7 +16,6 @@ const DeailyDeals = () => {
   const [sellClouth, setSellClouth] = useState([]);
 
   const data = useLoaderData();
-  console.log(data);
 
   const handleAll = () => {
     setSell(false);
@@ -52,7 +51,7 @@ const DeailyDeals = () => {
   };
 
   return (
-    <div>
+    <div className="mb-20">
       <div>
         <h2 className="text-center font-montserrat mt-24 text-4xl font-semibold ">
           _ DAILY DEALS! _
@@ -100,7 +99,7 @@ const DeailyDeals = () => {
       </div>
       <div className="px-4">
         {all && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10  max-w-screen-2xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10  max-w-screen-2xl mx-auto">
             {data.map((dataDetails, idx) => (
               <AllProducts key={idx} all={dataDetails}></AllProducts>
             ))}
