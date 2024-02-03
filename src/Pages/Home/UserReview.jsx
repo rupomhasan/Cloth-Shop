@@ -1,7 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
-import React, { Component } from "react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,7 +23,7 @@ const UserReview = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    focus: 1.4,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1200,
