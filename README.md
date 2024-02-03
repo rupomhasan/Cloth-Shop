@@ -1,7 +1,12 @@
-# HomePage
+# Clothes Shop
+Wellcome to clothes shop...
+
+## Getting Started : 
+
+### 1. Home Pages
  Enhance user experience with smooth animations using Fremer Motion Simple on our service icons.
  
-### Clothes Sub-navigation
+### 2. Clothes Sub-navigation
 
 In home page i have includes a sub navigation for the clothes section sothat user can filter the displayed clothes by the following options  : 
 
@@ -9,3 +14,9 @@ In home page i have includes a sub navigation for the clothes section sothat use
 - **New:** Explore the latest additions to out collection.
 - **Special:** Discover special and unique clothing items.
 - **Best Sell:** Check out out best-selling clothes.
+
+### 3. User Reviews
+
+Explore what our user saying and give rating about out products. 
+
+
