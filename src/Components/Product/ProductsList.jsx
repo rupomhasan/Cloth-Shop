@@ -2,7 +2,7 @@
 const ProductsList = () => {
     return (
         <div>
-            
+        
         </div>
     );
 };

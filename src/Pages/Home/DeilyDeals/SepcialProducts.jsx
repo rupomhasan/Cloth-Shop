@@ -8,7 +8,7 @@ const SepcialProducts = ({ specialClouth }) => {
     <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 px-5 max-w-screen-2xl mx-auto">
       {specialClouth.map((clouth, idx) => (
         <div key={idx}>
-          <Link to="/">
+          <Link to={`/productDetails/${clouth?._id}`}>
             <div className="card  bg-base-50 shadow-xl">
               <figure>
                 <img src={clouth?.image} alt={clouth?.productType} />

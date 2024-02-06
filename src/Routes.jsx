@@ -6,6 +6,7 @@ import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
 import MyCart from "./Pages/MyCart";
 import DeailyDeals from "./Pages/Home/DeilyDeals/DeailyDeals";
+import ProductsDetails from "./Components/Product/Details/ProductsDetails";
 
 const router = createBrowserRouter([
   {
@@ -15,13 +16,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader : () => fetch('http://localhost:2500/products'),
+        loader: () => fetch("http://localhost:2500/products"),
         element: <Home />,
       },
       {
         path: "/",
         element: <DeailyDeals />,
-        
       },
 
       {
@@ -35,6 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         element: <MyCart />,
+      },
+      {
+        path: `/productDetails/:id`,
+        element: <ProductsDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:2500/productDetails/${params.id}`),
       },
     ],
   },

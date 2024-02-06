@@ -1,11 +1,13 @@
 import { Rating } from "@smastrom/react-rating";
 import PropTypes from "prop-types";
 import "@smastrom/react-rating/style.css";
+import { Link } from "react-router-dom";
 
 const AllProducts = ({ all }) => {
   const {
+    _id,
     productName,
-    // productId,
+ 
     status,
     productType,
     price,
@@ -15,7 +17,7 @@ const AllProducts = ({ all }) => {
   } = all;
 
   return (
-    <div>
+    <Link to={`/productDetails/${_id}`}>
       <div className="card  bg-base-50 shadow-xl">
         <figure>
           <img src={image} alt={productType} />
@@ -51,14 +53,17 @@ const AllProducts = ({ all }) => {
             <div className="badge  badge-outline text-lg font-semibold bg-[#6a6bff] p-3 text-white">
               Fashion
             </div>
-            <div className={` ${status === 'In Stock' ?'text-green-600' : 'text-red-600'} badge badge-outline text-lg font-bold  p-3 `}>
+            <div
+              className={` ${
+                status === "In Stock" ? "text-green-600" : "text-red-600"
+              } badge badge-outline text-lg font-bold  p-3 `}
+            >
               {status}
             </div>
           </div>
-          
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
