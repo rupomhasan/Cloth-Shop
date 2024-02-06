@@ -22,3 +22,8 @@ Explore what our user saying and give rating about out products.
 ### 4. Instagram Component
 
 Explore a delightful Instagram-style image component in our project! When you hover over the image...
+
+
+### 5.DetailsPage
+
+Enhances user exprience by providing detailed information about products.User can details from the homepage or store page.Also related products are displayed in bottom.
