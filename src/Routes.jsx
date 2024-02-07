@@ -7,6 +7,7 @@ import Register from "./Pages/Authentication/Register";
 import MyCart from "./Pages/MyCart";
 import DeailyDeals from "./Pages/Home/DeilyDeals/DeailyDeals";
 import ProductsDetails from "./Components/Product/Details/ProductsDetails";
+import Shop from "./Pages/Shop/Shop";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         element: <MyCart />,
+      },
+      {
+        path: "/shop",
+        loader: () => fetch("http://localhost:2500/products"),
+        element: <Shop />,
       },
       {
         path: `/productDetails/:id`,

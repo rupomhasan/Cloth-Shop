@@ -1,5 +1,5 @@
 
-const ProductCard = () => {
+const ShopClouth = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const ProductCard = () => {
     );
 };
 
-export default ProductCard;
+export default ShopClouth;

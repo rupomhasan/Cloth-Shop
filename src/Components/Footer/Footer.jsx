@@ -60,9 +60,11 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-bordered join-item"
+                className=" input-bordered  join-item pl-2 "
               />
-              <button className="btn bg-[#a749ff] join-item">Subscribe</button>
+              <button className="btn   bg-[#a749ff] join-item">
+                Subscribe
+              </button>
             </div>
             <div
               className="flex mx-2

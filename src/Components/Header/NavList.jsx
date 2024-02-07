@@ -24,7 +24,7 @@ const NavList = () => {
           whileTap={{ scale: 0.92 }}
         >
           <NavLink
-            to="/login"
+            to="/shop"
             className={({ isActive }) =>
               !isActive ? "text-black" : "text-green-400"
             }
@@ -37,7 +37,8 @@ const NavList = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.92 }}
         >
-          <NavLink to= '/register'
+          <NavLink
+            to="/register"
             className={({ isActive }) =>
               !isActive ? "text-black" : "text-green-400"
             }

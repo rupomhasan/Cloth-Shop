@@ -17,7 +17,6 @@ const ProductsDetails = () => {
   const [newType, setNewtype] = useState([]);
   const {
     availableSizes,
-    brandName,
     image,
     offer,
     price,
