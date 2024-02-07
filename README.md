@@ -27,3 +27,8 @@ Explore a delightful Instagram-style image component in our project! When you ho
 ### 5. DetailsPage
 
 Enhances user exprience by providing detailed information about products.User can details from the homepage or store page.Also related products are displayed in bottom.
+
+### 6. Shop
+
+
+Displays cloth for women and men.Clicking 'men' will shows en products or cloth.sidebar filters by category showing available product. 
