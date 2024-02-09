@@ -35,7 +35,7 @@ Displays cloth for women and men.Clicking 'men' will shows en products or cloth.
 
 ### 7 .Shoping Mart Management
 
-## Features : 
+#### Features : 
  - **View , Add and Delete products in the cart**.
  - **Seamless product additon from various pages.**
  - **Individual item deletion adn 'clear all' fuctionality.**
