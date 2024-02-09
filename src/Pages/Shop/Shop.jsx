@@ -14,14 +14,12 @@ const Shop = () => {
   const [isWomen, setIsWomen] = useState(false);
   const [all, setAll] = useState(true);
   const clouths = useLoaderData();
-  console.log(clouths);
 
   useEffect(() => {
     const men = clouths.filter((clouth) => clouth.gender === "Men");
     const women = clouths.filter((clouth) => clouth.gender === "Women");
     setMenClouth(men);
     setWomenClouth(women);
-    console.log(men, women);
   }, [clouths]);
 
   const handleMen = () => {

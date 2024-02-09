@@ -12,7 +12,6 @@ const UserReview = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, []);

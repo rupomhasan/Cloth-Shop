@@ -1,4 +1,4 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, json, useLoaderData } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import Aside from "./Aside";
 import RelatedProduct from "./RelatedProduct";
 import Slider from "react-slick";
+import "react-toastify/dist/ReactToastify.css";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const ProductsDetails = () => {
   const clouth = useLoaderData();
@@ -21,7 +23,7 @@ const ProductsDetails = () => {
     offer,
     price,
     productDetails,
-   
+
     productName,
     productType,
     rating,
@@ -30,13 +32,11 @@ const ProductsDetails = () => {
     status,
   } = clouth;
 
-  console.log(productType);
   useEffect(() => {
     fetch("http://localhost:2500/products")
       .then((res) => res.json())
       .then((data) => {
         setClouth(data);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -88,6 +88,63 @@ const ProductsDetails = () => {
     ],
   };
 
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    var sizeElement = document.getElementById("size");
+    var size = sizeElement.options[sizeElement.selectedIndex].value; //help by ChatGPT
+    const quantity = parseInt(document.getElementById("quantity").value);
+    const name = document.getElementById("name").innerText;
+    const image = document.getElementById("img").getAttribute("src");
+    const status = document.getElementById("status").innerText;
+    const subTotal = orginalNumber * quantity;
+
+    if (status === "In Stock") {
+      const cart = {
+        image,
+        name,
+        size,
+        price,
+        quantity,
+        subTotal,
+      };
+      console.log(cart);
+
+      fetch("http://localhost:2500/addedCart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      })
+        .then((res) => res.json())
+        .then((feedback) => {
+          if (feedback.acknowledged) {
+            toast.success("Successfully Added ", {
+              transition: Bounce,
+              position: "bottom-left",
+            });
+          } else {
+            toast.warn("Got Error", {
+              transition: Bounce,
+              position: "bottom-left",
+            });
+          }
+        })
+        .catch((error) => {
+          toast.warn(error.message, {
+            transition: Bounce,
+            position: "bottom-left",
+          });
+          console.log(error.message);
+        });
+    } else {
+      toast.warn("Out of stock", {
+        transition: Bounce,
+        position: "bottom-left",
+      });
+    }
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto">
       <div className="bg-base-200 my-10">
@@ -113,7 +170,7 @@ const ProductsDetails = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-10 px-5 ">
           <div className="">
-            <img src={image} alt="" />
+            <img id="img" src={image} alt="" />
             <p className="text-2xl font-bold text-left mt-10 text-gray-600 font-montserrat">
               Description :{" "}
             </p>
@@ -129,7 +186,9 @@ const ProductsDetails = () => {
           </div>
           <div className="text-left">
             <div className="border-b-2 border-dashed">
-              <h2 className="font-semibold text-2xl mb-5">{productName}</h2>
+              <h2 id="name" className="font-semibold text-2xl mb-5">
+                {productName}
+              </h2>
               <div className="flex gap-2 items-center ">
                 <p
                   className={` ${"line-through text-gray-500 text-lg font-semibold"} `}
@@ -141,20 +200,20 @@ const ProductsDetails = () => {
                   {clouth?.offer === String ? "" : <span>% off</span>}
                 </p>
               </div>
-              <p>{orginalNumber} Taka</p>
+              <p id="price">{orginalNumber} Taka</p>
             </div>
-            <div className="border-b-2 border-dashed ">
-              <p className="text-lg font-bold">Available Sizes</p>
-              <div className="flex gap-2 font-semibold py-2">
+            <form className="border-b-2 border-dashed ">
+              <span className="text-lg font-bold">Available Sizes</span>
+              <select
+                id="size"
+                className="flex gap-2 font-semibold py-2 rounded pl-2"
+              >
                 {availableSizes.map((size, idx) => (
-                  <div key={idx}>
-                    <button className="badge badge-xl badge-ghost rounded-full ">
-                      {size}
-                    </button>
-                  </div>
+                  <option key={idx}>{size}</option>
                 ))}
-              </div>
+              </select>
               <p
+                id="status"
                 className={`${
                   status === "In Stock" ? "text-green-600" : "text-red-600 "
                 } text-xl font-semibold mt-5`}
@@ -165,17 +224,22 @@ const ProductsDetails = () => {
               <input
                 type="number"
                 min="1"
+                id="quantity"
                 max="10"
                 path="note"
                 defaultValue="1"
-                className="text-gray-400 block px-3 w-16 border bg-white h-10 text-2xl font-bold my-2 rounded-sm"
+                className="text-gray-900 block px-3 w-16 border bg-white h-10 text-2xl font-bold my-2 rounded-sm"
               />
-              <button className="btn btn-sm px-10 bg-[#a749ff] text-white text-xl mb-5">
-                Add to cart
+
+              <button
+                onClick={handleAddToCart}
+                className="btn btn-sm px-10 bg-[#a749ff] text-white text-xl mb-5"
+              >
+                Add To Cart
               </button>
-            </div>
+            </form>
             <div className="border-b-2 border-dashed">
-              <p className="font-bold text-xl mb-1 mt-4">Product Details : </p>
+              <p className="font-bold text-xl mb-1 ">Product Details : </p>
               <p className="text-lg mb-4">{productDetails}</p>
             </div>
 
@@ -199,13 +263,12 @@ const ProductsDetails = () => {
       <div className="overflow-hidden">
         <Slider {...settings} className="overflow-hidden">
           {newDeals.map((deals, idx) => (
-            <RelatedProduct
-              key={idx}
-              deals={deals}
-              offerdPrice={orginalNumber}
-            />
+            <RelatedProduct key={idx} deals={deals} />
           ))}
         </Slider>
+      </div>
+      <div>
+        <ToastContainer theme="colored" />
       </div>
     </div>
   );
