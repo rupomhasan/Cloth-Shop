@@ -32,3 +32,9 @@ Enhances user exprience by providing detailed information about products.User ca
 
 
 Displays cloth for women and men.Clicking 'men' will shows en products or cloth.sidebar filters by category showing available product. 
+
+### 7 .Shoping Mart Management
+
+## Features : 
+ - **View , Add and Delete products in the cart**.
+ -  
