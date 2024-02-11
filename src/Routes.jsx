@@ -8,7 +8,12 @@ import MyCart from "./Pages/MyCart";
 import DeailyDeals from "./Pages/Home/DeilyDeals/DeailyDeals";
 import ProductsDetails from "./Components/Product/Details/ProductsDetails";
 import Shop from "./Pages/Shop/Shop";
-import UserProfile from "./Components/User/UserProfile";
+import UserProfile from "./Components/Profile/UserProfile/UserProfile";
+import ProfileNav from "./Components/Profile/Admin/ProfileNav";
+import DashBoard from "./Components/Profile/Admin/DashBoard/DashBoard";
+import AddUser from "./Components/Profile/Admin/User/AddUser";
+import Product from "./Components/Profile/Admin/Product";
+import EmployeeProfile from "./Components/Profile/Admin/EmployeeProfile";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +57,26 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UserProfile />,
+        element: <ProfileNav />,
+        children: [
+          {
+            path: "",
+            element: <EmployeeProfile />,
+          },
+
+          {
+            path: "dashboard",
+            element: <DashBoard />,
+          },
+          {
+            path: "adduser",
+            element: <AddUser />,
+          },
+          {
+            path: "products",
+            element: <Product />,
+          },
+        ],
       },
     ],
   },

@@ -67,7 +67,7 @@ const UserReview = () => {
               </p>
               <div className="flex justify-center">
                 <img
-                  className="rounded-full w-44 h-44"
+                  className="rounded-full w-44 h-44 object-cover"
                   src={singleReview.userImage}
                   alt=""
                 />

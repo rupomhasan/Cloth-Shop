@@ -8,7 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
   return (
     <div className="bg-base-200">
-      <footer className="footer p-10  text-base-content max-w-screen-xl mx-auto">
+      <footer className="footer  py-10 pl-5  text-base-content max-w-screen-xl mx-auto">
         <aside>
           <svg
             width="50"
@@ -56,24 +56,22 @@ const Footer = () => {
             <label className="label">
               <span className="label-text">Enter your email address</span>
             </label>
-            <div className="join">
+            <div className="join ">
               <input
                 type="text"
                 placeholder="username@site.com"
-                className=" input-bordered  join-item pl-2 "
+                className=" input-bordered pl-3 join-item "
               />
-              <button className="btn   bg-[#a749ff] join-item">
-                Subscribe
-              </button>
+              <button className="btn  bg-[#a749ff] join-item">Subscribe</button>
             </div>
             <div
               className="flex mx-2
              text-2xl gap-5 my-2"
             >
-              <FaFacebook />
-              <FaSquareInstagram />
-              <AiFillTwitterCircle />
-              <FaYoutube />
+              <FaFacebook className="hover:text-blue-500" />
+              <FaSquareInstagram className="hover:text-orange-400" />
+              <AiFillTwitterCircle className="hover:text-blue-600" />
+              <FaYoutube className="hover:text-red-700" />
             </div>
           </fieldset>
         </form>
