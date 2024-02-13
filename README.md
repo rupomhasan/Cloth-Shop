@@ -40,3 +40,16 @@ Displays cloth for women and men.Clicking 'men' will shows en products or cloth.
  - **Seamless product additon from various pages.**
  - **Individual item deletion adn 'clear all' fuctionality.**
  - **Easy navigaion between shop , cart and home page.**
+
+### 8 . Profile
+
+#### Employee Profile
+
+The Employee Profile sub-route displays employee performance details along with their personal information.It includes a progress bar to visualize employee performance.
+
+
+#### Dashboard 
+
+- The Dashboard Economy status sub-route showcase economy status of this month . It utilizes the Count-Up component libary to animate and display the economy metrics dynamically.
+
+
