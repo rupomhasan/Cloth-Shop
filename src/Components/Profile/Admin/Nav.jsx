@@ -16,7 +16,7 @@ const Nav = () => {
       <ul className="text-left space-y-2 border-t-2 bg-base-200 my-10 font-medium text-xl font-playfair">
         <li className="px-5 py-2  hover:bg-gray-200 rounded ">
           <NavLink to="/profile/dashboard" className="flex gap-3 items-center">
-            {" "}
+ 
             <FiHome />
             DashBoard
           </NavLink>
@@ -32,20 +32,20 @@ const Nav = () => {
             to="/profile/addProducts"
             className="flex gap-3 items-center"
           >
-            {" "}
+ 
             <MdAddBox />
             AddProducts
           </NavLink>
         </li>
         <li className="px-5 py-2 hover:bg-gray-200 rounded ">
-          <NavLink to="/profile//user" className="flex gap-3 items-center">
+          <NavLink to="/profile/user" className="flex gap-3 items-center">
             <FaRegUser />
             User
           </NavLink>
         </li>
         <li className="px-5 py-2 hover:bg-gray-200 rounded ">
           <NavLink to="/profile/addUser" className="flex gap-3 items-center">
-            {" "}
+ 
             <TiUserAdd />
             AddUser
           </NavLink>

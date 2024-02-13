@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import NavDrawer from "./NavDrawer";
 import NavList from "./NavList";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Navbar = () => {
   const [data, setData] = useState([]);
+  const { user, admin, userLogout } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:2500/addedCart")
@@ -25,6 +27,22 @@ const Navbar = () => {
           <NavList />
         </div>
         <div className="flex-none gap-1">
+          <div>
+            {!user ? (
+              <Link to="/login">
+                <button className="btn btn-sm px-4 text-lg bg-purple-600 text-white">
+                  Login
+                </button>
+              </Link>
+            ) : (
+              <button
+                onClick={userLogout}
+                className="btn btn-sm px-4 text-lg bg-purple-600 text-white"
+              >
+                Logout
+              </button>
+            )}
+          </div>
           <Link to="/myCart">
             <div className="dropdown dropdown-end">
               <div
@@ -54,22 +72,44 @@ const Navbar = () => {
               </div>
             </div>
           </Link>
-          <Link to="/profile">
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="profile"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
+
+          <div>
+            {admin ? (
+              <Link to="/profile">
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        alt="profile"
+                        src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Link>
+              </Link>
+            ) : (
+              <Link to="/userProfile">
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img
+                        alt="profile"
+                        src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 import Economy from "./Economy";
+import MarketValue from "./MarketValueBar";
+import MarketValuePie from "./MarketValuePie";
 
 const DashBoard = () => {
   return (
@@ -7,6 +9,10 @@ const DashBoard = () => {
         DashBoard
       </h3>
       <Economy />
+      <div className="grid lg:grid-cols-2 items-center gap-10">
+        <MarketValue />
+        <MarketValuePie />
+      </div>
     </div>
   );
 };

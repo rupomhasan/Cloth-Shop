@@ -4,7 +4,7 @@ import { IoMenu } from "react-icons/io5";
 const NavDrawer = () => {
   return (
     <div>
-      <div className="drawer lg:drawer-open ">
+      <div className="drawer lg:drawer-open z-[9999]">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content text-left my-5 ">
           {/* Page content here */}

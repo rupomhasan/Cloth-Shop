@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import ErrorPage from "./Pages/Authentication/ErrorPage";
+import ErrorPage from "./Components/Common/ErrorPage";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Authentication/Login";
 import Register from "./Pages/Authentication/Register";
@@ -12,8 +12,11 @@ import UserProfile from "./Components/Profile/UserProfile/UserProfile";
 import ProfileNav from "./Components/Profile/Admin/ProfileNav";
 import DashBoard from "./Components/Profile/Admin/DashBoard/DashBoard";
 import AddUser from "./Components/Profile/Admin/User/AddUser";
-import Product from "./Components/Profile/Admin/Product";
+import Product from "./Components/Profile/Admin/DashBoard/Product";
 import EmployeeProfile from "./Components/Profile/Admin/EmployeeProfile";
+import AddProducts from "./Components/Profile/Admin/DashBoard/AddProducts";
+import UpdateProduct from "./Components/Profile/Admin/DashBoard/UpdateProduct";
+import PrivetRoute from "./Components/Common/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/",
-        element: <DeailyDeals />,
+        element: (
+          <PrivetRoute>
+            <DeailyDeals />
+          </PrivetRoute>
+        ),
       },
 
       {
@@ -42,7 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/myCart",
         loader: () => fetch("http://localhost:2500/addedCart"),
-        element: <MyCart />,
+        element: (
+          <PrivetRoute>
+            <MyCart />,
+          </PrivetRoute>
+        ),
       },
       {
         path: "/shop",
@@ -51,13 +62,29 @@ const router = createBrowserRouter([
       },
       {
         path: `/productDetails/:id`,
-        element: <ProductsDetails />,
+        element: (
+          <PrivetRoute>
+            <ProductsDetails />
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:2500/productDetails/${params.id}`),
       },
       {
+        path: "/userProfile",
+        element: (
+          <PrivetRoute>
+            <UserProfile />
+          </PrivetRoute>
+        ),
+      },
+      {
         path: "/profile",
-        element: <ProfileNav />,
+        element: (
+          <PrivetRoute>
+            <ProfileNav />
+          </PrivetRoute>
+        ),
         children: [
           {
             path: "",
@@ -74,7 +101,18 @@ const router = createBrowserRouter([
           },
           {
             path: "products",
+            loader: () => fetch("http://localhost:2500/products"),
             element: <Product />,
+          },
+          {
+            path: "addproducts",
+            element: <AddProducts />,
+          },
+          {
+            path: "updateProduct/:id",
+            loader: ({ params }) =>
+              fetch(`http://localhost:2500/productDetails/${params.id}`),
+            element: <UpdateProduct />,
           },
         ],
       },
