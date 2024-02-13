@@ -45,11 +45,29 @@ Displays cloth for women and men.Clicking 'men' will shows en products or cloth.
 
 #### Employee Profile
 
-The Employee Profile sub-route displays employee performance details along with their personal information.It includes a progress bar to visualize employee performance.
+The Employee Profile sub-route displays employee performance details along with their personal information.It includes a progress bar to visualize employee performance.All the data show by click employee list profile
 
 
 #### Dashboard 
 
 - The Dashboard Economy status sub-route showcase economy status of this month . It utilizes the Count-Up component libary to animate and display the economy metrics dynamically.
+- Tow chart for show the men and woman products .
+
+#### Employee List 
+- Admin can check out the employee status by clicking the profile icon.
+#### User List
+- Only display the user list 
+#### Product List 
+- Here admin can add product and update product form the list 
+#### 9 . Authentication 
+- Steps for user authentication using Firebase
+- How to register a new user .
+- How to log in an existing account.
+
+### 10 . Privet Routes 
+- Explanation of private routes and their purpose in the application.
+- How private routes restrict access to authenticated user only.
 
 
+rupom.hasan607299@gmail.com is the admin  user 
+your can change form authprovider route and OnAuthChnage .... 
