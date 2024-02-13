@@ -3,8 +3,24 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Progress } from "antd";
+import { useLoaderData } from "react-router-dom";
 
 const EmployeeProfile = () => {
+  const user = useLoaderData();
+  console.log(user);
+  const {
+    name,
+    photoUrl,
+    leavesTaken,
+    location,
+    overtime,
+    performance,
+    role,
+    gender,
+    email,
+    yearsOfExperience,
+  } = user;
+
   return (
     <div className=" ">
       <div className="ml-16 text-left my-6">
@@ -22,8 +38,10 @@ const EmployeeProfile = () => {
               />
             </div>
             <div className="my-4">
-              <p className="text-xl font-extrabold font-playfair my-2">Name</p>
-              <p>Email</p>
+              <p className="text-xl font-extrabold font-playfair my-2">
+                {name}
+              </p>
+              <p>{email}</p>
               <div className="  mt-2 flex  gap-3 justify-center">
                 <div className="p-4 bg-sky-500 rounded-full">
                   <FaGoogle className="text-white" />
@@ -41,19 +59,19 @@ const EmployeeProfile = () => {
             <p className="text-2xl font-bold ">Employee Status </p>
             <div className="mt-4">
               <p className="text-gray-500">Performance</p>
-              <Progress strokeColor="#ff8084" percent={80} />
+              <Progress strokeColor="#ff8084" percent={performance} />
             </div>
             <div className="mt-4">
               <p className="text-gray-500">Overtime</p>
-              <Progress strokeColor="#13c9ca" percent={60} />
+              <Progress strokeColor="#13c9ca" percent={overtime} />
             </div>
             <div className="mt-4">
               <p className="text-gray-500">Leaves taken</p>
-              <Progress percent={30} strokeColor="#dc3545" />
+              <Progress percent={leavesTaken} strokeColor="#dc3545" />
             </div>
           </div>
         </div>
-        <div className="bg-white mx-5 p-10 rouded shadow-xl">
+        <div className="bg-white mx-5 p-10 rounded shadow-xl">
           <div>
             <div className="flex  items-center gap-2 text-xl font-bold text-red-600 border-b-2 pb-2">
               <CgProfile />
@@ -64,17 +82,17 @@ const EmployeeProfile = () => {
                 <p>Name </p>
                 <p>Email </p>
                 <p>Gender </p>
-                <p>Mobile Number </p>
+                <p>Experience </p>
                 <p>Location </p>
                 <p>Role</p>
               </div>
               <div className="space-y-5 text-xl font-medium font-playfair col-span-2 text-left">
-                <p>: Name </p>
-                <p>: Email </p>
-                <p>: Gender </p>
-                <p>: Mobile Number </p>
-                <p>: Location </p>
-                <p>: Role</p>
+                <p>: {name} </p>
+                <p>: {email} </p>
+                <p>: {gender} </p>
+                <p>: {yearsOfExperience} </p>
+                <p>: {location} </p>
+                <p>: {role}</p>
               </div>
             </div>
           </div>

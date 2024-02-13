@@ -44,10 +44,10 @@ const Nav = () => {
           </NavLink>
         </li>
         <li className="px-5 py-2 hover:bg-gray-200 rounded ">
-          <NavLink to="/profile/addUser" className="flex gap-3 items-center">
+          <NavLink to="/profile/employee" className="flex gap-3 items-center">
  
             <TiUserAdd />
-            AddUser
+            Employee
           </NavLink>
         </li>
 

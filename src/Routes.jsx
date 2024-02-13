@@ -17,6 +17,8 @@ import EmployeeProfile from "./Components/Profile/Admin/EmployeeProfile";
 import AddProducts from "./Components/Profile/Admin/DashBoard/AddProducts";
 import UpdateProduct from "./Components/Profile/Admin/DashBoard/UpdateProduct";
 import PrivetRoute from "./Components/Common/PrivetRoute";
+import User from "./Components/Profile/Admin/User/User";
+import Employee from "./Components/Profile/Admin/User/Employee";
 
 const router = createBrowserRouter([
   {
@@ -87,17 +89,25 @@ const router = createBrowserRouter([
         ),
         children: [
           {
-            path: "",
+            path: ":id",
+            loader: ({ params }) =>
+              fetch(`http://localhost:2500/employee/${params.id}`),
             element: <EmployeeProfile />,
           },
 
           {
-            path: "dashboard",
+            path: "",
             element: <DashBoard />,
           },
           {
-            path: "adduser",
-            element: <AddUser />,
+            path: "user",
+            loader: () => fetch("http://localhost:2500/users"),
+            element: <User />,
+          },
+          {
+            path: "employee",
+            loader: () => fetch("http://localhost:2500/employee"),
+            element: <Employee />,
           },
           {
             path: "products",
